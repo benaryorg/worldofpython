@@ -10,19 +10,24 @@ class Food(Object):
 		return ';'.join([str(self.hunger),Object.__str__(self)])
 
 	def setHunger(self,hunger):
+		if hunger==None:
+			hunger=self.mass*50
 		hunger=int(hunger)
 		if hunger<0:
 			raise ValueError('Food cannot make hungry!')
 		else:
 			self.hunger=hunger
 
-class Apple(Food):
-	def __init__(self,sort,mass,hunger=5,color=Color.RGBA(red=255)):
+	def eat(self):
+		self.setMass(0)
+		hunger=self.hunger
+		self.setHunger(None)
+		return hunger
+
+class Fruit(Food):
+	def __init__(self,mass,color,hunger=None):
 		Food.__init__(self,mass,hunger,color)
-		self.setSort(sort)
 
 	def __str__(self):
-		return ';'.join([self.sort,Food.__str__(self)])
+		return ';'.join([self.__class__.__name__,Food.__str__(self)])
 
-	def setSort(self,sort):
-		self.sort=str(sort)
