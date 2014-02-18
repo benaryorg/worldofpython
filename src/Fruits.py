@@ -1,19 +1,19 @@
 from Food import Fruit
 
 class Apple(Fruit):
-	pass
+    pass
 
 class Pear(Fruit):
-	pass
+    pass
 
 class Cherry(Fruit):
-	pass
+    pass
 
 class Grape(Fruit):
-	pass
+    pass
 
 class Banana(Fruit):
-	pass
+    pass
 
 class Orange(Fruit):
-	pass
+    pass
