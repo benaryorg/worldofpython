@@ -1,8 +1,8 @@
 from Object import Object
 
 class Furniture(Object):
-	def __init__(self,mass,material):
-		Object.__init__(self,mass=mass)
+	def __init__(self,mass,material,color):
+		Object.__init__(self,mass=mass,color=color)
 		self.setMaterial(material)
 
 	def __str__(self):
@@ -12,8 +12,8 @@ class Furniture(Object):
 		self.material=str(material)
 
 class Sittable(Furniture):
-	def __init__(self,mass,material,maxpersons,sitting=0):#TODO Color
-		Furniture.__init__(self,mass,material)
+	def __init__(self,mass,material,maxpersons,color,sitting=0):
+		Furniture.__init__(self,mass,material,color)
 		self.setMaxPersons(maxpersons)
 		self.setSitting(sitting)
 
@@ -41,7 +41,11 @@ class Sittable(Furniture):
 		count=int(count)
 		self.setSitting(count+self.sitting)
 
+        def standUp(self,count=1):
+		count=int(count)
+		self.setSitting(self.sitting-count)
+
 class Chair(Sittable):
-	def __init__(self,mass,material,maxpersons=1,sitting=0):
-		Sittable.__init__(self,mass,material,maxpersons,sitting)
+	def __init__(self,mass,material,color,maxpersons=1,sitting=0):
+		Sittable.__init__(self,mass,material,maxpersons,color,sitting)
 
