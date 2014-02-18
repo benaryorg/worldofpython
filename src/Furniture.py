@@ -12,13 +12,13 @@ class Furniture(Object):
 		self.material=str(material)
 
 class Sittable(Furniture):
-	def __init__(self,mass,material,maxpersons,sitting=0):
+	def __init__(self,mass,material,maxpersons,sitting=0):#TODO Color
 		Furniture.__init__(self,mass,material)
 		self.setMaxPersons(maxpersons)
 		self.setSitting(sitting)
 
 	def __str__(self):
-		return ';'.join([str(self.sitting),str(self.maxpersons)])
+		return ';'.join([str(self.sitting),str(self.maxpersons),Furniture.__str__(self)])
 
 	def setMaxPersons(self,persons):
 		persons=int(persons)
